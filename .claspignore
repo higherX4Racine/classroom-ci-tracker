@@ -1,5 +1,15 @@
-LICENSE
-test/*
-README.md
-package.json
+# Git files
 .gitignore
+
+# Repository files for developers
+README.md
+LICENSE
+
+# node.js files
+package*.json
+node_modules/
+
+# local developmentfiles
+build/
+test/
+.tsconfig.json

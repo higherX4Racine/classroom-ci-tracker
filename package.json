@@ -1,0 +1,37 @@
+{
+  "name": "classroom-ci-tracker",
+  "version": "0.0.1",
+  "description": "A web app for tracking continuous improvement efforts in a classroom",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "qunit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/higherX4Racine/classroom-ci-tracker.git"
+  },
+  "keywords": [
+    "google",
+    "apps",
+    "script",
+    "continuous",
+    "improvement"
+  ],
+  "author": "Ben Taft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/higherX4Racine/classroom-ci-tracker/issues"
+  },
+  "homepage": "https://github.com/higherX4Racine/classroom-ci-tracker#readme",
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "qunit": "^2.20.1",
+    "ts-node": "^10.9.2",
+    "tsconfig": "^7.0.0",
+    "tslib": "^2.6.2",
+    "typescript": "^5.3.3"
+  }
+}
