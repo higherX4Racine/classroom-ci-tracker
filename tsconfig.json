@@ -1,7 +1,17 @@
 {
     "compilerOptions": {
-        "outDir": "build",
-        "module": "CommonJS"
+        "target": "ES2019",
+        "module": "CommonJS",
+        "lib": [
+            "esnext"
+        ],
+        "experimentalDecorators": true,
+        "types": [
+            "google-apps-script"
+        ],
+        "outDir": "build"
     },
-    "include": ["./src/**/*"]
+    "include": [
+        "./src/**/*"
+    ]
 }

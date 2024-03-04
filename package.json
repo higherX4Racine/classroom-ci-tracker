@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "qunit"
+    "test": "tsc && qunit"
   },
   "repository": {
     "type": "git",
@@ -28,11 +28,12 @@
   "homepage": "https://github.com/higherX4Racine/classroom-ci-tracker#readme",
   "devDependencies": {
     "@google/clasp": "^2.4.2",
-    "@types/node": "^20.11.24",
+    "@types/qunit": "^2.19.10",
     "qunit": "^2.20.1",
-    "ts-node": "^10.9.2",
     "tsconfig": "^7.0.0",
-    "tslib": "^2.6.2",
     "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@types/google-apps-script": "^1.0.82"
   }
 }

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <h1>People</h1>
+    <div>
+        <h2>John Doe</h2>
+        <dl>
+            <dt>Family Name:</dt><dd>Doe</dd>
+            <dt>Given Name:</dt><dd>John</dd>
+            <dt>ID Number:</dt><dd>123</dd>
+        </dl>
+    </div>
+    <h2><?= person.givenName ?> <?= person.familyName ?></h2>
+    <dl>
+        <dt>Family Name:</dt><dd><?= person.familyName ?></dd>
+        <dt>Given Name:</dt><dd><?= person.givenName ?></dd>
+        <dt>ID Number:</dt><dd><?= person.number ?></dd>
+    </dl>
+</div>
+</body>
+</html>
