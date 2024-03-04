@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/higherX4Racine/classroom-ci-tracker#readme",
   "devDependencies": {
+    "@google/clasp": "^2.4.2",
     "@types/node": "^20.11.24",
     "qunit": "^2.20.1",
     "ts-node": "^10.9.2",
