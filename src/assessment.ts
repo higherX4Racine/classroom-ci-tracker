@@ -5,6 +5,11 @@
  * The values are the student's score at a particular time.
  * @typedef {[key: number]: number} Assessment
  */
-export type Assessment = {
+export class Assessment {
     [index: number]: number;
+    constructor(...observations: Array<[number, number]>) {
+        observations.forEach(([when, what]) => {
+            this[when] = what;
+        });
+    }
 }
