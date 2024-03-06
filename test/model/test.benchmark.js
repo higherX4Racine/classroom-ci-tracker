@@ -34,3 +34,10 @@ QUnit.test("JSON serialization of Assessment instances", assert => {
     assert.equal(JSON.stringify(february), "[4,8,12]");
     assert.equal(JSON.stringify(april), "[10,20,30]");
 });
+
+QUnit.test("JSON deserialization of Assessment instances", assert => {
+    assert.deepEqual(Benchmark.fromJSON(JSON.parse("[0,2,4]")), september);
+    assert.deepEqual(Benchmark.fromJSON(JSON.parse("[2,5,9]")), november);
+    assert.deepEqual(Benchmark.fromJSON(JSON.parse("[4,8,12]")), february);
+    assert.deepEqual(Benchmark.fromJSON(JSON.parse("[10,20,30]")), april);
+});

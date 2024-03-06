@@ -26,4 +26,8 @@ export class Benchmark {
     toJSON(): Array<number> {
         return this._boundaries.slice(0, -1);
     }
+
+    static fromJSON(boundaries: Array<number>): Benchmark {
+        return new Benchmark(...boundaries);
+    } 
 }

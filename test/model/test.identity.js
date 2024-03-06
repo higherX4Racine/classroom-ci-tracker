@@ -14,6 +14,5 @@ QUnit.test("An example identity has all of its fields.", assert => {
 QUnit.test("JSON serialization of an Identity instance", assert => {
     const as_string = JSON.stringify(john_doe);
     assert.equal(as_string, '{"family":"Doe","given":"John","number":123}');
-    const doe_john = new Identity(...Object.values(JSON.parse(as_string)));
-    assert.deepEqual(doe_john, john_doe);
+    assert.deepEqual(Identity.fromJSON(JSON.parse(as_string)), john_doe);
 })

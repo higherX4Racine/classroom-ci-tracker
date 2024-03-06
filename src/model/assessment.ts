@@ -23,4 +23,8 @@ export class Assessment {
     toJSON(): Array<[number, number]> {
         return Object.entries(this).map(([k, v]) => [Number(k), v]);
     }
+
+    static fromJSON(observations: Array<[number, number]>): Assessment {
+        return new Assessment(...observations);
+    }
 }

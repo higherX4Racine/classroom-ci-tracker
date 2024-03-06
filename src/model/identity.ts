@@ -49,4 +49,8 @@ export class Identity {
             number: this.number
         };
     }
+
+    static fromJSON(obj: {family: string, given: string, number: bigint}): Identity {
+        return new Identity(obj.family, obj.given, obj.number);
+    }
 }
