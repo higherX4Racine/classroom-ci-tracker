@@ -1,4 +1,4 @@
-const {Identity} = require("../build/identity.js")
+const { Identity } = require("../../build/identity.js")
 
 QUnit.module("Identity");
 
