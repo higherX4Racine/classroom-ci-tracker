@@ -40,9 +40,9 @@ export class Student {
     }
 
     /**
-     * One assessment, or `null` if it doesn't exist.
+     * One assessment, or `undefined` if it doesn't exist.
      * @param {string} name - the label of the assessment
-     * @returns {(Assessment|undefined)} the students' scores on the the assessment
+     * @returns {Assessment | undefined} the students' scores on the the assessment
      */
     assessment(name: string): Assessment | undefined {
         return this._assessments[name];

@@ -25,6 +25,8 @@ QUnit.test("student information", assert => {
     assert.ok(student.hasService("ELL"));
     assert.notOk(student.hasService("Virtual"));
     assert.deepEqual(student.assessment("ORF"), orf);
+    assert.deepEqual(student.assessment("ORF").indices(), [1, 2, 3]);
     assert.deepEqual(student.assessment("Letter Sounds"), lts);
+    assert.deepEqual(student.assessment("Letter Sounds").indices(), [0, 1, 2, 3]);
     assert.equal(student.assessment("froboz"));
 })
