@@ -19,4 +19,8 @@ export class Assessment {
     indices(): Array<number> {
         return Object.keys(this).map((i) => Number(i));
     }
+
+    toJSON(): Array<[number, number]> {
+        return Object.entries(this).map(([k, v]) => [Number(k), v]);
+    }
 }
