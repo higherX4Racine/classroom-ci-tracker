@@ -18,3 +18,9 @@ QUnit.test("the numeric keys of an assessment can be queried directly",
         assert.deepEqual(pi.indices(), [0, 1, 2, 4]);
     }
 );
+
+QUnit.test("JSON serialization of Assessment instances", assert => {
+    const as_string = JSON.stringify(pi);
+    assert.equal(as_string, "[[0,3],[1,1],[2,4],[4,5]]");
+    assert.deepEqual(Assessment.fromJSON(JSON.parse(as_string)), pi);
+});

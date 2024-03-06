@@ -27,3 +27,9 @@ QUnit.test("Creating a Standard instance works", assert => {
     assert.equal(standard.achievement_level(2, 6), "Needs Intervention");
     assert.equal(standard.achievement_level(4, 6), "Urgent");
 })
+
+QUnit.test("JSON serialization of Standard instances", assert => {
+    const as_string = JSON.stringify(standard);
+    assert.equal(as_string, `[${JSON.stringify(achievement_levels)},${JSON.stringify(boundaries)}]`);
+    assert.deepEqual(Standard.fromJSON(JSON.parse(as_string)), standard);
+})
