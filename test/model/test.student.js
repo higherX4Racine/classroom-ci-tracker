@@ -4,7 +4,7 @@ const { Student } = require("../../build/student.js");
 
 QUnit.module("Student");
 
-const person = new Identity("John", "Doe", 123);
+const person = new Identity("Doe", "John", 123);
 
 const orf = new Assessment([1, 1], [2, 2], [3, 3]);
 

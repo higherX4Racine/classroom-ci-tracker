@@ -4,13 +4,13 @@ export class Identity {
     protected _family: string;
     protected _number: bigint;
     /**
-     * @param {string} given - the person's personal name, like "Ben"
      * @param {string} family - the person's lineal name, like "Taft"
+     * @param {string} given - the person's personal name, like "Ben"
      * @param {bigint} number - the person's identification number
      */
-    constructor(given: string, family: string, number: bigint) {
-        this._given = given;
+    constructor(family: string, given: string, number: bigint) {
         this._family = family;
+        this._given = given;
         this._number = number;
     }
 
@@ -42,7 +42,11 @@ export class Identity {
         return `${this._given} ${this._family}`;
     }
 
-    toJSON(): [string, string, bigint] {
-        return [this.givenName, this.familyName, this.number];
+    toJSON(): { family: string, given: string, number: bigint } {
+        return {
+            family: this.familyName,
+            given: this.givenName,
+            number: this.number
+        };
     }
 }
