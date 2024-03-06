@@ -1,6 +1,8 @@
 # classroom-ci-tracker
+<!--  start of badges -->
+[![Node.js CI](https://github.com/higherX4Racine/classroom-ci-tracker/actions/workflows/node.js.yml/badge.svg?branch=stage)](https://github.com/higherX4Racine/classroom-ci-tracker/actions/workflows/node.js.yml)
 [![clasp](https://img.shields.io/badge/built%20with-clasp-4285f4.svg)](https://github.com/google/clasp)
-
+<!-- end of badges -->
 A web app for tracking continuous improvement efforts in a classroom
 
 ## Setup
