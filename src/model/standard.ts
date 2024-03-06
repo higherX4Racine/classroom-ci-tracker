@@ -1,24 +1,24 @@
 import { Benchmark } from "./benchmark";
+/** A collection of benchmarks for converting continuous scores to discrete achievement levels. */
 export class Standard {
     _labels: Array<string>;
     _benchmarks: { [when: number]: Benchmark };
 
     /**
-     * 
      * @param {Array<string>} achievement_labels - an array of labels for the different levels
      * @param {{[when: number]: Benchmark}} benchmarks - a dictionary of number - array pairs
      */
     constructor(achievement_labels: Array<string>, benchmarks: { [when: number]: Benchmark }) {
         this._labels = Array(...achievement_labels);
         this._benchmarks = {};
-        Object.entries(benchmarks).forEach(([index, thresholds]) => {
-            if (!this.correct_size(thresholds)) {
+        Object.entries(benchmarks).forEach(([index, boundaries]) => {
+            if (!this.correct_size(boundaries)) {
                 throw new Error(
-                    `Problem with the thresholds for ${index}:
-                    It contains ${thresholds.length} elements, but it must have exactly ${this.levels}.`
+                    `Problem with the boundaries for ${index}:
+                    It contains ${boundaries.length} elements, but it must have exactly ${this.levels}.`
                 );
             }
-            this._benchmarks[index] = thresholds;
+            this._benchmarks[index] = boundaries;
         });
     }
 
@@ -28,13 +28,13 @@ export class Standard {
     }
 
     /**
-     * Verify that an array of threshold values is appropriate for this standard.
+     * Verify that an array of boundary values is appropriate for this standard.
      *  
-     * @param {Benchmark} thresholds - a sequence of threshold values 
+     * @param {Benchmark} boundaries - a sequence of boundary values 
      * @returns {boolean} `true` when the array's length is equal to the instance's labels' length.
      */
-    correct_size(thresholds: Benchmark): boolean {
-        return thresholds.length == this.levels;
+    correct_size(boundaries: Benchmark): boolean {
+        return boundaries.length == this.levels;
     }
 
     /**
