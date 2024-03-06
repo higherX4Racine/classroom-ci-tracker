@@ -8,8 +8,8 @@ export class Student {
     _assessments: { [key: string]: Assessment };
     /**
      * @param {Identity} identity - the student's name and identity number
-     * @param {Array.<string>} services - which services (e.g. special education) the student gets
-     * @param {Array.<[string, Assessment]>} assessments - the assessments that the student has taken.
+     * @param {Array<string>} services - which services (e.g. special education) the student gets
+     * @param {Array<[string, Assessment]>} assessments - the assessments that the student has taken.
      */
     constructor(identity: Identity, services: Array<string>, ...assessments: Array<[string, Assessment]>) {
         /** Information about who the student is */
@@ -47,4 +47,33 @@ export class Student {
     assessment(name: string): Assessment | undefined {
         return this._assessments[name];
     }
+
+    toJSON(): [
+        { family: string, given: string, number: bigint },
+        Array<string>,
+        Array<[string, Array<[number, number]>]>
+    ] {
+        return [
+            this._identity.toJSON(),
+            [...this._services],
+            Object.entries(this._assessments).map(([label, assessments]) => {
+                return [label, assessments.toJSON()];
+            })
+        ];
+    }
+
+    static fromJSON(tuple: [
+        { family: string, given: string, number: bigint },
+        Array<string>,
+        Array<[string, Array<[number, number]>]>
+    ]): Student {
+        const [id_obj, services, assessment_array] = tuple;
+        const assessments = assessment_array.map(name_assessment);
+        return new Student(Identity.fromJSON(id_obj), services, ...assessments);
+    }
+}
+
+function name_assessment(obj: [string, Array<[number, number]>]): [string, Assessment] {
+    const [name, observations] = obj;
+    return [name, Assessment.fromJSON(observations)];
 }

@@ -22,4 +22,12 @@ export class Benchmark {
     get length(): number {
         return this._boundaries.length;
     }
+
+    toJSON(): Array<number> {
+        return this._boundaries.slice(0, -1);
+    }
+
+    static fromJSON(boundaries: Array<number>): Benchmark {
+        return new Benchmark(...boundaries);
+    } 
 }

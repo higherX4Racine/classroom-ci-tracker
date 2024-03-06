@@ -1,16 +1,16 @@
 /** Name and ID number fields for a person */
 export class Identity {
-    protected _givenName: string;
-    protected _familyName: string;
+    protected _given: string;
+    protected _family: string;
     protected _number: bigint;
     /**
-     * @param {string} givenName - the person's personal name, like "Ben"
-     * @param {string} familyName - the person's lineal name, like "Taft"
+     * @param {string} family - the person's lineal name, like "Taft"
+     * @param {string} given - the person's personal name, like "Ben"
      * @param {bigint} number - the person's identification number
      */
-    constructor(givenName: string, familyName: string, number: bigint) {
-        this._givenName = givenName;
-        this._familyName = familyName;
+    constructor(family: string, given: string, number: bigint) {
+        this._family = family;
+        this._given = given;
         this._number = number;
     }
 
@@ -19,7 +19,7 @@ export class Identity {
      * @returns {string}
      */
     get givenName(): string {
-        return this._givenName;
+        return this._given;
     }
 
     /**
@@ -27,7 +27,7 @@ export class Identity {
      * @returns {string}
      */
     get familyName(): string {
-        return this._familyName;
+        return this._family;
     }
 
     /**
@@ -39,6 +39,18 @@ export class Identity {
     }
 
     toString(): string {
-        return `${this._givenName} ${this._familyName}`;
+        return `${this._given} ${this._family}`;
+    }
+
+    toJSON(): { family: string, given: string, number: bigint } {
+        return {
+            family: this.familyName,
+            given: this.givenName,
+            number: this.number
+        };
+    }
+
+    static fromJSON(obj: {family: string, given: string, number: bigint}): Identity {
+        return new Identity(obj.family, obj.given, obj.number);
     }
 }

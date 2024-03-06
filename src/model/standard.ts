@@ -47,4 +47,21 @@ export class Standard {
     achievement_level(when: number, score: number): string {
         return this._labels[this._benchmarks[when].level(score)];
     }
+
+    toJSON(): [Array<string>, { [index: number]: Benchmark }] {
+        return [this._labels, this._benchmarks];
+    }
+
+    /** The inverse of `toJSON`, converts a plain JSON object hierarchy to a Standard instance.
+     * 
+     * @param {[Array<string>, {[index: number]: Array<number>}]} tuple - a pair objects that can be converted to labels and Benchmarks.
+     * @returns {Standard}
+     */
+    static fromJSON(tuple: [Array<string>, {[index: number]: Array<number>}]): Standard {
+        const [labels, boundaries] = tuple;
+        const benchmarks = Object.entries(boundaries).map(([index, bnds]) => {
+            return [index, Benchmark.fromJSON(bnds)]
+        });
+        return new Standard(labels, Object.fromEntries(benchmarks));
+    }
 }
