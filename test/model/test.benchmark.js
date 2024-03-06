@@ -27,3 +27,10 @@ QUnit.test("Benchmark searching returns the index of the level a score achieves"
     assert.equal(february.level(6), 1);
     assert.equal(april.level(6), 0);
 });
+
+QUnit.test("JSON serialization of Assessment instances", assert => {
+    assert.equal(JSON.stringify(september), "[0,2,4]");
+    assert.equal(JSON.stringify(november), "[2,5,9]");
+    assert.equal(JSON.stringify(february), "[4,8,12]");
+    assert.equal(JSON.stringify(april), "[10,20,30]");
+});
