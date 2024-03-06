@@ -30,3 +30,10 @@ QUnit.test("student information", assert => {
     assert.deepEqual(student.assessment("Letter Sounds").indices(), [0, 1, 2, 3]);
     assert.equal(student.assessment("froboz"));
 })
+
+QUnit.test("JSON serialization of Student objects", assert => {
+    const should_be = '[{"family":"Doe","given":"John","number":123},["G/T","SPED","ELL"],[["ORF",[[1,1],[2,2],[3,3]]],["Letter Sounds",[[0,9],[1,16],[2,23],[3,26]]]]]'
+    const as_string = JSON.stringify(student);
+    assert.equal(as_string, should_be);
+    assert.deepEqual(Student.fromJSON(JSON.parse(as_string)), student);
+})
