@@ -40,3 +40,14 @@ QUnit.test("JSON serialization of Student objects", assert => {
     assert.equal(as_string, should_be);
     assert.deepEqual(Student.fromJSON(JSON.parse(as_string)), student);
 })
+
+QUnit.test("read a student from JSON", assert => {
+    const fs = require("node:fs");
+    try {
+        const data = fs.readFileSync("./test/model/example_student.json", "utf8");
+        const loaded = JSON.parse(data);
+        assert.deepEqual(Student.fromJSON(loaded), student);
+    } catch (err) {
+        assert.ok(false, err.toString());
+    }
+})
