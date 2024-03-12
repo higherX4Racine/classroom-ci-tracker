@@ -22,6 +22,11 @@ export class Standard {
         });
     }
 
+    /** The literal values of the standard's achievement labels. */
+    get labels(): Array<string> {
+        return this._labels;
+    }
+
     /** The number of levels that this standard divides scores into. */
     get levels(): number {
         return this._labels.length;
@@ -38,14 +43,25 @@ export class Standard {
     }
 
     /**
-     * Look up an achievement level by score and when the observation occurred
+     * Look up the text of an achievement level by score and when the observation occurred
      * 
      * @param {number} when - The time that the score was observed
      * @param {number} score - A score on an assessment
      * @returns {string} the label of the achievement level
      */
-    achievement_level(when: number, score: number): string {
+    achievement_label(when: number, score: number): string {
         return this._labels[this._benchmarks[when].level(score)];
+    }
+
+    /**
+     * Look up the index of an achievement level by score and when the observation occurred
+     * 
+     * @param {number} when - The time that the score was observed
+     * @param {number} score - A score on an assessment
+     * @returns {number} the index of the achievement level
+     */
+    achievement_level(when: number, score: number): number {
+        return this._benchmarks[when].level(score);
     }
 
     toJSON(): [Array<string>, { [index: number]: Benchmark }] {

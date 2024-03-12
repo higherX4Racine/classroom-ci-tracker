@@ -1,4 +1,4 @@
-const { Assessment } = require("../../build/assessment.js")
+const { Assessment } = require("../../build/model/assessment.js")
 
 QUnit.module("Assessment");
 

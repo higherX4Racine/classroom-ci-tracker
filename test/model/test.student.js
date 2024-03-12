@@ -1,6 +1,6 @@
-const { Identity } = require("../../build/identity.js");
-const { Assessment } = require("../../build/assessment.js");
-const { Student } = require("../../build/student.js");
+const { Identity } = require("../../build/model/identity.js");
+const { Assessment } = require("../../build/model/assessment.js");
+const { Student } = require("../../build/model/student.js");
 
 QUnit.module("Student");
 

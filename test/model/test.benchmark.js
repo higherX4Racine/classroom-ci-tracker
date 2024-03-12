@@ -1,4 +1,4 @@
-const { Benchmark } = require("../../build/benchmark.js");
+const { Benchmark } = require("../../build/model/benchmark.js");
 
 QUnit.module("Benchmark");
 
